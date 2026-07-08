@@ -31,11 +31,13 @@ Google collaborator. Getting better? You can't bear La Classe a video. Personal 
 In the party Gemini process to the security secure program. Hey, Cortana. Hey, Cortana. Victor Raphael give me a status. Yeah, Google consolimentally connector. Is in the city, guys. The quadrant is, yeah, congress. Chavez. Vamos. Aarle a kiss aqui. Esta parte de qui amigos, esta parte de qui yaes este el notud como tados. Elisa not to play color texto car ecodi go it texto acidosa noses. When I studio Amos, when I used to do you studying for medical. Story No. Mira queso ivita is a uno dostre cuatro santo. Recommendation. Numero de linea. Compare. Is. All they were whole neighbors, no? The. Text local, local text automatic. Text. Hey, Cortana. Text. A kid who important to text. OK. Doses loca simulaca nache uno vina serum on estimate you know, Maria. Marato de Python. Marathon de Python. Grand. Joe Soy mucho me **** That's the Tres linear method of Pensado paradigm. As a formal. Diaz. Epam. Station. Call. Shut up. Colombia. 
 
 
-Puerta. Colombia. Uno dos. Hey, Cortana. Position difference in Life Island. And he's just gone on the high Fiat pop down or they've been out there. I've got Omni under. I mean, I think, you know, Zakiri, it's going out of the mess here. They don't know he's in place. In Allison and Jim Columbian and Aquiferosunia Tolos helicopter. Automation monocales you know to restart, you know esto mono cales comment 11 Quebec. Linear Cotton and Elfando Harris and Suarez Suarez. Again. He is gonna give the Suarez get on a football. Colombia. Columbia CT. Colombia. Candy. Resistance. Camilo. 's. Marina. We start Sierra. Candy. Colombia. Rodriguez. Puerta. Rodriguez. Even 800 Partino Localnita no so Prolemo ranking Gallido or Puerto Al Paso de Puerto Hiroku Bella. Colombia. Colombia. Open Sound OK. Mucho somers pokos espos espacio's Laura, Tesco Hispano. Riva Luis Suarez. Good evening. Piano. Mr Lito came in. Yeah, they got to come in the league. Bunsen, Dalier. Live a picando camero ligue estent. For me. I love it. Love it. Come on, please let me finish. Lazada. Perfect. Ion select a position. Control. Participation Rodriguez. Rodriguez. Hey, Cortana. Youtube. Rodriguez. Look at Dan Wyncara Republista. Kashari. Impasse.
 
 
 
 
+git add .
+git commit -m "Mi primer commit del nuevo proyecto"
+git push origin main
 
 
 
