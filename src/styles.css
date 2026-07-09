@@ -1,1 +1,118 @@
-menu jnkj
+@import "tailwindcss" source (none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(dark *));
+
+@theme {
+    -- font-display: "Fraunces", "Fredoka", Georgia, serif;
+    -- font-spans: "Quicksand", "Fredoka", system-ui, sans-serif;
+    -- ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@theme inline {
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
+    --radius-2xl: calc(var(--radius) + 8px);
+    --radius-3xl: calc (var(--radius) + 12px);
+
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    ---color-popover-foreground: var(--popover-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground)
+    --color-destructive: var(--destructive)
+    --color-destructive-foreground: var(--destructive-foreground);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--input);
+
+    --color-space-deep: var(--space-deep);
+    --color-space-mid: var(--space-mid);
+    --color-space-ligth: var(--space-ligth);
+    --color-aliend-mint: var(--alien-mint);
+    --color-cosmic-pink: var(--cosmic-pink);
+    --color-star-yellow: var(--star-yellow);
+    --color-heart-red: var(--heart-red);
+    --color-cosmic-purple: var(--cosmic-purple);
+
+    --shadow-chunky: 0 8px 0 0 rgba(0, 0, 0.25);
+    --shadow-chunky-sm: 0 4px 0 0 rgba(0, 0, 0.25);
+}
+
+:root { Notebook is for me.
+    --radius:;
+
+    --space-deep: #2a1f5c;
+    --space-mid: #3e2f7e;
+    --space-light: #58479E;
+    --alien-mint: #9ff3d9;
+    --cosmic-pink: #FFB6D4;
+    --star-yellow: #ffe8a3;
+    --heart-red: #ff95AE;
+    --cosmic-purple: #c9a8ff;
+
+    --background: #2a1f5c;
+    --foreground: #fff6fb;
+    --card: #3e2f7e;
+    --card-foreground: #FFF6Fb;
+    --popover: #3e2f7e;
+    --popover-foreground: #FFF6Fb;
+    --primary: #9ff3d9;
+    --primary-foreground: #fff6fb;
+    --secondary: #ffb6d4;
+    --secondary-foreground: #2a1f5c;
+    --muted: #58479E;
+    --muted-foreground: rgba(255, 246, 251, 0.7);
+    --accent: #ffe8a3;
+    --accent-foreground: #2a1f5c;
+    --destructive: #ff95ae;
+    --destructive-foreground: #fff6fb;
+    --border: rgba(255, 255, 255, 0.12);
+    --input: rgba(255, 255, 255, 0.12);
+    --ring: #9ff3d9;
+}
+
+@keyframes float {
+    0%, 100% {transform: translateY(0px);}
+    50% { transform: translateY(-10px);}
+}
+@keyframes pulse-glow {
+    0%, 100% {box-shadow: 0 0 0 0px rgba(0, 245, 212, 0.5)}
+    50% {box-shadow: 0 0 0 18px rgba(0, 245, 212, 0);}
+}
+@keyframes twinkle {
+    0%, 100% { opacity: 0,3; transform: scale(0.8);}
+    50% { opacity: 1; transform: scale(1.1);}
+}
+@keyframes pop-in {
+    0% { opacity: 0; transform: scale(0.7);}
+    100% { opacity: 1; transform: scale(1);}
+}
+@keyframes wobble{
+    0%, 100% {transform: rotate(-3deg)}
+    50% {transform: rotate(3deg);}
+}
+@keyframes drift {
+    0% { transform: translateX(-20px) translateY(0);}
+    50% { transform: translateX(20px) translateY(-30px);}
+    100% { transform: translateX(-20px) translateY(0);}
+}
+@keyframes ticker {
+    0% { transform: translateX(0)}
+    100% { transform: translateX(-50%);}
+}
+@keyframes shimmer
+
+
