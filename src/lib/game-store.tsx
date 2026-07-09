@@ -267,13 +267,98 @@ export function GameProvider ({children}: {children: ReactNode} ) {
         },
         isLevelComplete,
         getLevelProgress: (i) => levelProgress[i] ?? [],
-        setTopic: 
+        setTopic: (t, subs) => {
+            const clean = t.trim();
+            setState((s) => {
+                const existing = s.worlds.find((w) => w.topic.toLowerCase() === clean.toLowerCase());
+                if (existing){
+                    const nextSubs = subs.length ? subs : existing.subtopics;
+                    const changed = nextSubs.join("||").toLowerCase()!== existing.subtopics.join("||").toLowerCase();
+                    return {
+                        ...s,
+                        activeWorldId: existing.id,
+                        worlds: s.worlds.map((w) =>
+                            w.id === existing.id
+                            ? { ...w, subtopics:nextSubs, levelProgress:changed ? {} : w.levelProgress}
+                            :w,                  
+                        ),
+                    };
+                }
+                const theme = THEMES[s.worlds.length % THEMES.length];
+                const newWorld: World={
+                    id: "w_" + newId(),
+                    topic: clean,
+                    subtopics: subs,
+                    levelProgress: {},
+                    theme,
+                    createdAt: Date.now(),
+                };
+                return {
+                    ...s,
+                    worlds: [...s.worlds,newWorld],
+                    activeWorldId: newWorld.id,
+                    stats: { ...s.tats, worldsCreated: s.stats.wordlsCreated + 1},
+                };
+            });
+        },
+        switchWorld: (id) => setState((s) => ({ ...s, activeWorldId: id})),
+        removeWorld: (id) =>
+            setState((s) => {
+                const filtered = s.worlds.filter((w) => w.id !== id);
+                if (filtered.length === 0) return s;
+                const nextActive = s.activeWorldId === id ? filtered[0].id : s.activeWorldId;
+                return { ...s, worlds: filtered, activeWorldId: nextActive};
+            }),
+        toogleBreak: () => setState((s) => ({ ...s,onBreak: !s.onBreak})),
+        setProfile: (p) => setState((s) => ({ ...s, profile: p })),
+        resetProfile: () => setState(() => defaultState),
+        addCustomTopic: (t) =>
+            setState((s) => {
+                const clean = t.trim();
+                if (!clean) return s;
+                const exists = s.customTopics.some((x) => x.toLowerCase() === clean.toLowerCase());
+                if (exists) return s;
+                return { ...s, customTopics: [clean, ...s.customTopics].slice(0,12)};
+            }),
+        removeCustomTopic: (t) =>
+            setState((s) =>({ ...s, customTopics: s.customTopics.filter((x) => x !== t)})),
+        equipAccessory: (id) => setState ((s) => ({ ...s, equippedAccessory: id})),
+        buyClothing: (id, cost)=> {
+            let ok = false;
+            setState((s) => {
+                if (s.ownedClothes.includes(id)) {
+                    ok = true;
+                    return { ...selectedSubtopics, equippedAccessory: id };
+                }
+                if (s.stars < cost) return s;
+                ok = true;
+                return {
+                    ...s,
+                    stars: s.stars - cost,
+                    ownedClothes: [...s.ownedClothes, id],
+                    equippedAccessory: id,             
+                };
+            });
+            return ok;
+        },
+        setChatHistory: (m) => setState((s) => ({ ...s, chatHistory: m})),
+        clearChat: () => setState((s) => ({ ...s, chatHistory: []})),
+        markBoardingPassSeen: () => setState((s) => ({ ...s, seenBoardingPass: true })),
+        markWelcomeSeen: () => setState((s) => ({ ...s, seenWelcome: true})),
+        canUsePower: () => {
+            const today = new Date().toISOString().slice(0,10);
+            if (state.powerUsedDate === today) return false;
+            setState((s) => ({ ...s, powerUsedDate: today}));
+            return true;
+        }, 
+    };
 
-
-    }
-
-
-
+    return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }
 
+export function useGame (){
+    const ctx = useContext(Ctx);
+    if (!ctx) throw new Error("useGame must be used inside GameProvider");
+    return ctx;
+}
 
