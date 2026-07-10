@@ -51,8 +51,8 @@
     --shadow-chunky-sm: 0 4px 0 0 rgba(0, 0, 0.25);
 }
 
-:root { Notebook is for me.
-    --radius:;
+:root {
+    --radius: 1rem;
 
     --space-deep: #2a1f5c;
     --space-mid: #3e2f7e;
@@ -113,6 +113,80 @@
     0% { transform: translateX(0)}
     100% { transform: translateX(-50%);}
 }
-@keyframes shimmer
+@keyframes shimmer {
+    0% { background-position: -200% 0;}
+    100% { background-position: 200% 0;}
+}
+@keyframes kenburns {
+    0% { transform: scale(1) translate(0, 0);}
+    50% { transform: scale(1.18) translate(-2%, -2%);}
+    100% {transform: scale(1.25) translate(2%, 2%);}
+}
+
+.animate-float { animation: float 3s ease-in-out infinite;}
+.animate-pulse-glow { animation: pulse-glow 2s infinite; }
+.animate-twinkle { animation: twinkle 3s ease-in-out infinite;}
+.animate-pop-in { animation: pop-in 0.4s var(--ease-spring) both;}
+.animate-wobble { animation: wobble 2s ease-in-out infinite;}
+.animate-drift { animation: drift 12s ease-in-out infinite;}
+.animate-ticker {animation: ticker 30s linear infinite;}
+.animate-kenburns {animation: kenburns 9s ease-in-out infinite alternate; transform-origin: center;}
+.animate-shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 2.5s linear infinite;
+}
+
+.chunky {
+    box-shadow: 0 6px 0 0 rgba(0, 0, 0, 0.3);
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.chunky:active {
+    transform: translateY(3px);
+    box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.3);
+}
+
+.bg-stars {
+    background-image:
+        radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,0.6), transparent),
+        radial-gradient(1px 1px at 60% 70%, rgba(255,255,255,0.4), transparent),
+        radial-gradient(2px 2px at 80% 20%, rgba(254,228,64,0.5), transparent),
+        radial-gradient(1px 1px at 40% 80%, rgba(255,78,173,0.4), transparent),
+        radial-gradient(1px 1px at 90% 50%, rgba(0,245,212,0.4), transparent);
+    background-size: 400px 400px;
+    background-repeat: repeat;
+}
+
+.flip-scene { perspective: 1600px;}
+.flip-card {
+    position: relative;
+    transform-style: hidden;
+    transition: transform 0.7s cubic-bezier(0,34, 1.56, 0.64, 1);
+}
+.flip-card.is-flipped { transform: rotateY(180deg);}
+.flip-face {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+.flip-back{
+    position: absolute;
+    inset: 0;
+    transform: rotateY(180deg);
+    overflow: auto;
+}
+
+@layer base {
+    * { border-color: var(--color-border);}
+    html, body {font-family: var (--font-sans);}
+    h1, h2, h3, .font-display { font-family: var(--font-display); letter-spacing: -0.01em;}
+    body {
+        background-color: var(--color-background);
+        color: var(--color-foreground);
+        background-image:
+            radial-gradient(ellipse at top, #58479e 0%, #2a1f5c 65%);
+        background-attachment: fixed;
+    }
+}
 
 
